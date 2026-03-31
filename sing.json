@@ -1,32 +1,36 @@
 {
-  "tag": "💦 4 - VLESS - IPv4 : 443",
-  "type": "vless",
-  "server": "188.114.96.3",
-  "server_port": 443,
-  "tcp_fast_open": false,
-  "uuid": "11566ad8-9fb9-4f0e-b58a-cf8d02be15c7",
-  "packet_encoding": "",
-  "network": "tcp",
-  "tls": {
-    "enabled": true,
-    "server_name": "QQq.Tzm-99.X10.mX",
-    "record_fragment": false,
-    "insecure": false,
-    "alpn": [
-      "http/1.1"
-    ],
-    "utls": {
-      "enabled": true,
-      "fingerprint": "chrome"
+  "outbounds": [
+    {
+      "tag": "💦 4 - VLESS - IPv4 : 443",
+      "type": "vless",
+      "server": "188.114.96.3",
+      "server_port": 443,
+      "tcp_fast_open": false,
+      "uuid": "11566ad8-9fb9-4f0e-b58a-cf8d02be15c7",
+      "packet_encoding": "",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "QQq.Tzm-99.X10.mX",
+        "record_fragment": false,
+        "insecure": false,
+        "alpn": [
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoiaV0k2WDAyTzcilCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119",
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "qqq.tzm-99.x10.mx"
+        }
+      }
     }
-  },
-  "transport": {
-    "type": "ws",
-    "path": "/eyJqdW5rIjoiV0k2WDAyTzciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119",
-    "max_early_data": 2560,
-    "early_data_header_name": "Sec-WebSocket-Protocol",
-    "headers": {
-      "Host": "qqq.tzm-99.x10.mx"
-    }
-  }
+  ]
 }
