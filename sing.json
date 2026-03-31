@@ -1,0 +1,91 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "https://8.8.8.8/dns-query",
+        "detour": "✅ Selector"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "8.8.8.8",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "dns-direct"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "dns-remote"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "address": [
+        "172.19.0.1/28"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "mixed",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "✅ Selector",
+      "outbounds": [
+        "💦 3 - VLESS - IPv4 : 443",
+        "direct"
+      ]
+    },
+    {
+      "type": "vless",
+      "tag": "💦 3 - VLESS - IPv4 : 443",
+      "server": "188.114.96.3",
+      "server_port": 443,
+      "uuid": "11566ad8-9fb9-4f0e-b58a-cf8d02be15c7",
+      "scheme": "vless",
+      "tls": {
+        "enabled": true,
+        "server_name": "qqq.tzm-99.x10.mx",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoidkdaU0lINmNrNUpHMkIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119",
+        "headers": {
+          "Host": "qqq.tzm-99.x10.mx"
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "✅ Selector"
+  }
+}
