@@ -1,7 +1,7 @@
 proxies:
   - name: "💦 3 - VLESS - IPv4 : 443"
     type: vless
-    server: 172.66.47.115
+    server: 172.66.214.199
     port: 443
     uuid: bd89f196-6cbc-41a8-a35a-c94fc1169787
     udp: false
